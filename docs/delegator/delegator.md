@@ -20,7 +20,9 @@ public AuthenticationManager authenticationManagerBean() throws Exception {
 
 样例可参考包 `top.sinfonia.demo.dp.delegator` 中的代码，`Delegator` 将 `build()` 方法的调用推迟到了 `Delegator` 中业务方法的调用。
 
-- 注意：样例代码在 `Delegator` 中调用了 `build()` 方法，但是 `AuthenticationManagerDelegator` 则是调用 `getObject()` 方法。
+- 注意：~~样例代码在 `Delegator` 中调用了 `build()` 方法~~，但是 `AuthenticationManagerDelegator` 则是调用 `getObject()` 方法。
+    - 修改了样例，添加了 `getObject()` 方法，不过为了 Test 类书写的方便，未抛出异常，手动判断了 null
+    - 此外，`getObject()` 方法的存在还是很有必要的，在 `Delegator` 中调用 `build()` 方法是很奇怪的。
 
 关于 `getObject()` 方法描述如下，
 

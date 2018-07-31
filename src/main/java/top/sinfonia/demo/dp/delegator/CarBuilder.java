@@ -1,6 +1,7 @@
 package top.sinfonia.demo.dp.delegator;
 
 import javafx.util.Builder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author singoasher
@@ -9,6 +10,7 @@ import javafx.util.Builder;
 public class CarBuilder implements Builder<Car> {
     private String name;
     private Integer price;
+    private Car car;
 
     CarBuilder() {
     }
@@ -23,8 +25,16 @@ public class CarBuilder implements Builder<Car> {
         return this;
     }
 
+    Car getObject() {
+        if (this.car == null) {
+            return null;
+        }
+        return this.car;
+    }
+
     @Override
     public Car build() {
-        return new RealCar(name, price);
+        this.car = new RealCar(this.name, this.price);
+        return this.car;
     }
 }

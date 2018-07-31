@@ -16,8 +16,17 @@ public class CarDelegatorTest {
 
         carDelegator.run();
         carDelegator.run();
+
+        carBuilder.build();
         carDelegator.run();
         carDelegator.run();
+
+        CarBuilder carBuilder1 = new CarBuilder();
+        carBuilder1.name("Singo").price(1234567890).build();
+        CarDelegator carDelegator1 = new CarDelegator(carBuilder1);
+
+        carDelegator1.run();
+        carDelegator1.run();
     }
 
 }

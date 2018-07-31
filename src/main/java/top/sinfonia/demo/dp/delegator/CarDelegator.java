@@ -30,7 +30,11 @@ public class CarDelegator extends RealCar {
         log.info("Delegate is null");
         synchronized (delegateMonitor) {
             if (delegate == null) {
-                this.delegate = delegateBuilder.build();
+                this.delegate = delegateBuilder.getObject();
+                if (this.delegate == null) {
+                    log.error("Has not been built");
+                    return;
+                }
 
                 // DelegateBuilder under CarDelegator will never be used
                 this.delegateBuilder = null;
