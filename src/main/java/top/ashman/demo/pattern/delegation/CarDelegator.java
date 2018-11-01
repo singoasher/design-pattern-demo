@@ -1,4 +1,4 @@
-package top.ashman.demo.pattern.delegator;
+package top.ashman.demo.pattern.delegation;
 
 /**
  * Delegator
@@ -6,7 +6,6 @@ package top.ashman.demo.pattern.delegator;
  * @author singoasher
  * @date 2018/7/31
  */
-@Slf4j
 public class CarDelegator extends RealCar {
     private CarBuilder delegateBuilder;
     private Car delegate;
@@ -20,17 +19,17 @@ public class CarDelegator extends RealCar {
     @Override
     public void run() {
         if (delegate != null) {
-            log.info("Delegate is not null");
+            System.out.println("Delegate is not null and going to run");
             delegate.run();
             return;
         }
 
-        log.info("Delegate is null");
+        System.out.println("Delegate is null");
         synchronized (delegateMonitor) {
             if (delegate == null) {
                 this.delegate = delegateBuilder.getObject();
                 if (this.delegate == null) {
-                    log.error("Has not been built");
+                    System.out.println("Not built");
                     return;
                 }
 

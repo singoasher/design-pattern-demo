@@ -1,4 +1,4 @@
-package top.ashman.demo.pattern.delegator;
+package top.ashman.demo.pattern.delegation;
 
 /**
  * Delegate
@@ -9,6 +9,14 @@ package top.ashman.demo.pattern.delegator;
 public class RealCar implements Car {
     private String name;
     private Integer price;
+
+    public RealCar() {
+    }
+
+    public RealCar(String name, Integer price) {
+        this.name = name;
+        this.price = price;
+    }
 
     @Override
     public void run() {

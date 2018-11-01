@@ -1,4 +1,4 @@
-# Delegator
+# 委托模式（Delegation Pattern）
 
 ## Start
 

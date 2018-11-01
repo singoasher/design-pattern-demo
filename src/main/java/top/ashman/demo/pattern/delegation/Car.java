@@ -1,4 +1,4 @@
-package top.ashman.demo.pattern.delegator;
+package top.ashman.demo.pattern.delegation;
 
 /**
  * @author singoasher
